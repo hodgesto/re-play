@@ -14,3 +14,4 @@ profiles.clj
 *.DS_Store
 /node_modules
 /log
+.rebel_readline_history
