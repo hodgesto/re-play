@@ -1,4 +1,4 @@
-(ns re-play.routes.home
+(ns re-play.routes.statistics
   (:require
    [re-play.layout :as layout]
    [re-play.db.core :as db]
@@ -7,11 +7,11 @@
    [ring.util.response]
    [ring.util.http-response :as response]))
 
-(defn home-page [request]
-  (layout/render request "home.html"))
+(defn statistics-page [request]
+  (layout/render request "statistics.html"))
 
-(defn home-routes []
+(defn statistics-routes []
   [""
    {:middleware [middleware/wrap-csrf
                  middleware/wrap-formats]}
-   ["/" {:get home-page}]])
+   ["/statistics" {:get statistics-page}]])

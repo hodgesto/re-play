@@ -25,7 +25,6 @@
 
 (conman/bind-connection *db* "sql/queries.sql")
 
-
 (extend-protocol jdbc/IResultSetReadColumn
     java.sql.Timestamp
   (result-set-read-column [v _2 _3]

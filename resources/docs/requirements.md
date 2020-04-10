@@ -189,9 +189,9 @@ queries to the operator and to a log file.
 
 ![Message Sequence Chart for Use Case 3][messageseq3]
 
-[usecases]: ./images/usecases.svg "Use Cases Diagram"
-[classdiagram]: ./images/classdiagram.svg "UML Class Diagram"
-[dataflow]: ./images/dataflow.svg "Data Flow Diagram"
-[messageseq1]: ./images/messageseq1.svg "Message Sequence Chart for Use Case 1"
-[messageseq2]: ./images/messageseq2.svg "Message Sequence Chart for Use Case 2"
-[messageseq3]: ./images/messageseq3.svg "Message Sequence Chart for Use Case 3"
+[usecases]: /images/usecases.svg "Use Cases Diagram"
+[classdiagram]: /images/classdiagram.svg "UML Class Diagram"
+[dataflow]: /images/dataflow.svg "Data Flow Diagram"
+[messageseq1]: /images/messageseq1.svg "Message Sequence Chart for Use Case 1"
+[messageseq2]: /images/messageseq2.svg "Message Sequence Chart for Use Case 2"
+[messageseq3]: /images/messageseq3.svg "Message Sequence Chart for Use Case 3"

@@ -33,12 +33,19 @@
      [:div#nav-menu.navbar-menu
       {:class (when @expanded? :is-active)}
       [:div.navbar-start
-       [nav-link "#/" "Home" :home]
-       [nav-link "#/about" "About" :about]]]]))
+       [nav-link "/" "Home" :home]
+       [nav-link "/schedules" "Schedules" :schedules]
+       [nav-link "/statistics" "Statistics" :statistics]]]]))
 
-(defn about-page []
+(defn schedules-page []
   [:section.section>div.container>div.content
-   [:img {:src "/img/warning_clojure.png"}]])
+   (when-let [schedules @(rf/subscribe [:schedules])]
+     )])
+
+(defn statistics-page []
+  [:section.section>div.container>div.content
+   (when-let [statistics @(rf/subscribe [:statistics])]
+     )])
 
 (defn home-page []
   [:section.section>div.container>div.content
@@ -59,8 +66,12 @@
     [["/" {:name        :home
            :view        #'home-page
            :controllers [{:start (fn [_] (rf/dispatch [:page/init-home]))}]}]
-     ["/about" {:name :about
-                :view #'about-page}]]))
+     ["/schedules" {:name   :schedules
+                    :view   #'schedules-page
+                    :controllers [{:start (fn [_] (rf/dispatch [:page/init-schedules]))}]}]
+     ["/statistics" {:name    :statistics
+                     :view    #'statistics-page
+                     :controllers [{:start (fn [_] (rf/dispatch [:page/init-statistics]))}]}]]))
 
 (defn start-router! []
   (rfe/start!
