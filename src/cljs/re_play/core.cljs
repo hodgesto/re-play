@@ -29,23 +29,11 @@
        {:data-target :nav-menu
         :on-click #(swap! expanded? not)
         :class (when @expanded? :is-active)}
-       [:span][:span][:span]]]
+       [:span][:span][:span][:span]]]
      [:div#nav-menu.navbar-menu
       {:class (when @expanded? :is-active)}
       [:div.navbar-start
-       [nav-link "/" "Home" :home]
-       [nav-link "/schedules" "Schedules" :schedules]
-       [nav-link "/statistics" "Statistics" :statistics]]]]))
-
-(defn schedules-page []
-  [:section.section>div.container>div.content
-   (when-let [schedules @(rf/subscribe [:schedules])]
-     )])
-
-(defn statistics-page []
-  [:section.section>div.container>div.content
-   (when-let [statistics @(rf/subscribe [:statistics])]
-     )])
+       [nav-link "#/" "Home" :home]]]]))
 
 (defn home-page []
   [:section.section>div.container>div.content
@@ -65,13 +53,7 @@
   (reitit/router
     [["/" {:name        :home
            :view        #'home-page
-           :controllers [{:start (fn [_] (rf/dispatch [:page/init-home]))}]}]
-     ["/schedules" {:name   :schedules
-                    :view   #'schedules-page
-                    :controllers [{:start (fn [_] (rf/dispatch [:page/init-schedules]))}]}]
-     ["/statistics" {:name    :statistics
-                     :view    #'statistics-page
-                     :controllers [{:start (fn [_] (rf/dispatch [:page/init-statistics]))}]}]]))
+           :controllers [{:start (fn [_] (rf/dispatch [:page/init-home]))}]}]]))
 
 (defn start-router! []
   (rfe/start!

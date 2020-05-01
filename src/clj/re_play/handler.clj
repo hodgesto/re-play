@@ -3,8 +3,6 @@
     [re-play.middleware :as middleware]
     [re-play.layout :refer [error-page]]
     [re-play.routes.home :refer [home-routes]]
-    [re-play.routes.schedules :refer [schedules-routes]]
-    [re-play.routes.statistics :refer [statistics-routes]]
     [reitit.ring :as ring]
     [ring.middleware.content-type :refer [wrap-content-type]]
     [ring.middleware.webjars :refer [wrap-webjars]]
@@ -19,9 +17,7 @@
   :start
   (ring/ring-handler
     (ring/router
-      [[(home-routes)]
-       [(schedules-routes)]
-       [(statistics-routes)]])
+      [(home-routes)])
     (ring/routes
       (ring/create-resource-handler
         {:path "/"})
