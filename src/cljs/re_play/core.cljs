@@ -33,7 +33,7 @@
      [:div#nav-menu.navbar-menu
       {:class (when @expanded? :is-active)}
       [:div.navbar-start
-       [nav-link "#/" "Home" :home]]]]))
+       [nav-link "#/" "Hockey Statistics" :home]]]]))
 
 (defn home-page []
   [:section.section>div.container>div.content
